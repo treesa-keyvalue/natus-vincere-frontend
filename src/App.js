@@ -7,7 +7,7 @@ import "./App.css";
 import Combinations from "./screens/Combinations";
 import LandingPage from "./screens/LandingPage";
 import SavedProducts from "./screens/SavedProducts";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import TestComponent from './screens/test';
 
 const queryClient = new QueryClient();
@@ -18,8 +18,8 @@ function App() {
       <Router>
         <ChakraProvider>
           <RecoilRoot>
-            <Box mx={200}>
-              <Header />
+            <Box className="container">
+              {/* <Header /> */}
               <Routes>
                 <Route path="/home" element={<LandingPage />} />
                 <Route path="/combinations" element={<Combinations />} />
