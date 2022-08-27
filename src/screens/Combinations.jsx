@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Flex } from "@chakra-ui/react";
+import { useRecoilState } from 'recoil';
 
 import DraggableElement from "../components/DraggableElement";
 import { combinations, selectedCombinations } from "../constants";
+import { SavedCombinations } from '../states/savedCombinations';
 
 const lists = ["combinations", "preview"];
 
@@ -22,6 +24,8 @@ const Combinations = () => {
   const [elements, setElements] = React.useState(generateListNew());
   const [selected, setSelected] = React.useState([]);
 
+  const [savedCombinations, setSavedCombinations] = useRecoilState(SavedCombinations);
+
   useEffect(() => {
     setSelected(selectedCombinations);
   }, [selectedCombinations]);
@@ -29,6 +33,7 @@ const Combinations = () => {
   useEffect(() => {
     console.log(44444, generateListNew(selected));
     setElements(generateListNew(selected));
+    setSavedCombinations(selected);
   }, [selected]);
 
   const onDragEnd = (result) => {
