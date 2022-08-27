@@ -7,10 +7,12 @@ const Header = () => {
   const navigate = useNavigate();
 
   return (
-    <Flex m={5} justifyContent="space-between">
+    <header className="innerpage-header">
+      <Flex className="container" p={5} justifyContent="space-between">
         <ArrowLeft cursor="pointer" size={24} color="#3e3a6e" weight="bold" onClick={() => navigate(-1)} />
         <ShoppingCart cursor="pointer" size={24} color="#3e3a6e" weight="bold" onClick={() => navigate('/saved')} />
-    </Flex>
+      </Flex>
+    </header>
   );
 };
 

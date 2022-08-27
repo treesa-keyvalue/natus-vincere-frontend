@@ -19,7 +19,7 @@ const HeaderLanding = () => {
 
   return (
     <Tween to={{ y: '0', opacity: 1 }} duration={1} delay={0.5} ease="back.out(1.7)">
-      <header>
+      <header className="landing-header">
         <Container className="d-flex justify-content-between align-items-center">
           <a href="#">
             <img src="./images/logo.svg" alt="Logo" />

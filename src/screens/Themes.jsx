@@ -12,7 +12,7 @@ const Themes = () => {
       <Flex bg="gray.50" direction="column" p={2}>
         <Flex>
           {themes.map((theme) => (
-            <Flex direction="column" p={2} bg="white">
+            <Flex direction="column" p={2}>
               <Image
                 src={theme.image_link}
                 cursor="pointer"

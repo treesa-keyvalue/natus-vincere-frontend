@@ -6,7 +6,7 @@ $black: #000000;
 $textcolor: #2D2D2D;
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
     position: relative;
 }
 
@@ -23,6 +23,7 @@ body {
     left: 0;
     top: 0;
     background-color: $theme;
+    min-height: 100vh;
 
     &::after {
         content: "";
@@ -38,7 +39,7 @@ body {
     }
 }
 
-header {
+header.landing-header {
     padding: 60px 0 20px;
     transform: translateY(-30px);
     opacity: 0;
@@ -155,6 +156,14 @@ header {
             color: $theme;
         }
     }
+}
+
+header.innerpage-header {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: $white;
+    z-index: 1;
 }
 
 .navi-homepage {
@@ -348,8 +357,8 @@ header {
         padding: 10px;
 
         li {
-            width: 75px;
-            height: 75px;
+            width: 65px;
+            height: 65px;
             border-radius: 20px;
             transform: rotate(-135deg);
             transition: all 0.2s ease;
@@ -362,7 +371,7 @@ header {
             }
 
             &:not(:first-of-type) {
-                margin-left: -15px;
+                margin-left: -10px;
             }
         }
     }
@@ -396,5 +405,91 @@ header {
                 margin-left: 10px;
             }
         }
+    }
+}
+
+.celebritypage-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: #F5F5F5;
+    min-height: 100vh;
+}
+
+main.navi-celebrity {
+    padding-top: 130px;
+    padding-bottom: 80px;
+    z-index: 1;
+    position: relative;
+
+    h1 {
+        font-size: 26px;
+        text-transform: uppercase;
+        line-height: 1.2;
+        font-weight: 600;
+    }
+
+    .navi-celebrity__box {
+        padding: 30px;
+        background: $white;
+        box-shadow: 0px 4px 4px rgba(194, 194, 194, 0.25);
+        border-radius: 8px;
+        margin-top: 24px;
+
+        .image-container {
+            padding: 0;
+
+            img {
+                width: 100%;
+                height: 385px;
+                object-fit: cover;
+                object-position: center
+            }
+        }
+
+        .selection-container {
+            padding-right: 0;
+            padding-left: 60px;
+            font-size: 18px;
+
+            img {
+                margin-bottom: 10px;
+                height: 180px;
+                object-fit: cover;
+                object-position: center
+            }
+
+            p:first-of-type {
+                font-size: 18px;
+                font-weight: 600;
+            }
+
+            p:last-of-type {
+                padding-top: 4px;
+            }
+
+            p:first-of-type:last-of-type {
+                color: #6B7280;
+                font-size: 14px;
+                padding: 0;
+                font-weight: normal;
+            }
+        }
+    }
+
+    .celebrity-button {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 1.5;
+        padding: 15px 0;
+        width: 100%;
+        display: inline-block;
+        background: $theme;
+        text-align: center;
+        margin-top: 60px;
+        border-radius: 5px;
+        color: $white;
     }
 }

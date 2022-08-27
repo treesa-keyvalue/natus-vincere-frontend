@@ -19,8 +19,8 @@ function App() {
       <Router>
         <ChakraProvider>
           <RecoilRoot>
+            {/* <Header /> */}
             <Box className="container">
-              {/* <Header /> */}
               <Routes>
                 <Route path="/home" element={<LandingPage />} />
                 <Route path="/combinations" element={<Combinations />} />
