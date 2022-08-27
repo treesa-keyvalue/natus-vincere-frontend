@@ -12,8 +12,8 @@ const CombinationsList = ({ combinations }) => {
         {combinations?.map(combination => (
             <GridItem key={combination.id} bg="gray.50" p={3} px={8} mb={2}>
                 <Flex direction="column">
-                    <ImageCard src={combination.image} width="220px" />
-                    <ImageCardContent title={combination.title} description={combination.description} price={combination.price} discount={combination.discount}/>
+                    <ImageCard src={combination.image_link} width="140px" height="140px" />
+                    <ImageCardContent title={combination.name} description={combination.description} price={combination.price} discount={combination.discount}/>
                 </Flex>
             </GridItem>
         ))}

@@ -25,7 +25,7 @@ const HeaderLanding = () => {
             <img src="./images/logo.svg" alt="Logo" />
           </a>
           <nav className="ms-auto">
-            <a href="#">Celebrities</a>
+            <a href="/celebrities">Celebrities</a>
           </nav>
           <div className="account-buttons">
             <a href="#" className="head-btn">LOGIN</a>

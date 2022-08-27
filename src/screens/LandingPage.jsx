@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Container, Col, Row } from 'reactstrap';
+
 import HeaderLanding from '../components/HeaderLanding';
 import { Tween } from 'react-gsap';
 
@@ -25,7 +26,7 @@ const LandingPage = () => {
               <Tween to={{ y: '0', opacity: 1 }} duration={1} delay={1.4} ease="back.out(1.7)">
                 <div className="banner-buttons">
                   <a href="#">Install Plugin</a>
-                  <a href="#">Try Demo</a>
+                  <a href="/themes">Try Demo</a>
                 </div>
               </Tween>
             </Col>

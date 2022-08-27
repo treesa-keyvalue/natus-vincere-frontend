@@ -12,9 +12,9 @@ const Preview = ({ combinations }) => {
       </Text>
       {combinations.map((combination) => (
         <Flex p={3}>
-          <ImageCard src={combination.image} width="220px" />
+          <ImageCard src={combination.image_link} width="220px" />
           <Box ml={4}>
-            <ImageCardContent title={combination.title} description={combination.description} price={combination.price} discount={combination.discount}/>
+            <ImageCardContent title={combination.name} description={combination.description} price={combination.price} discount={combination.discount}/>
           </Box>
         </Flex>
       ))}

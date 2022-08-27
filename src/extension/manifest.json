@@ -1,0 +1,19 @@
+{
+    "name": "Recommended matches",
+    "version": "0.1.1",
+    "description": "recommends matches to the product selected",
+    "permissions": ["scripting","tabs"],
+    "host_permissions": ["https://*.myntra.com/*"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://*.myntra.com/*"],
+        "js": ["contentScript.js"],
+        "css": ["contentScript.css"]
+      }
+    ],
+    "manifest_version": 3
+  }
+  

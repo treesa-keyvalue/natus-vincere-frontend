@@ -7,8 +7,9 @@ import "./App.css";
 import Combinations from "./screens/Combinations";
 import LandingPage from "./screens/LandingPage";
 import SavedProducts from "./screens/SavedProducts";
-// import Header from "./components/Header";
-import TestComponent from './screens/test';
+import Header from "./components/Header";
+import Celebrities from './screens/Celebrities';
+import Themes from './screens/Themes';
 
 const queryClient = new QueryClient();
 
@@ -24,7 +25,8 @@ function App() {
                 <Route path="/home" element={<LandingPage />} />
                 <Route path="/combinations" element={<Combinations />} />
                 <Route path="/saved" element={<SavedProducts />} />
-                <Route path="/test" element={<TestComponent />} />
+                <Route path="/themes" element={<Themes />} />
+                <Route path="/celebrities" element={<Celebrities />} />
               </Routes>
             </Box>
           </RecoilRoot>

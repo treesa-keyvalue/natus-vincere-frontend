@@ -1,11 +1,24 @@
 import React from "react";
 import { Droppable } from "react-beautiful-dnd";
 import { Box, Grid, Flex } from "@chakra-ui/react";
+import { useSetRecoilState } from "recoil";
 
 import ListItem from "./ListItem";
 import Button from "./Button";
+import { SavedCombinations } from '../states/savedCombinations';
 
-const DraggableElement = ({ prefix, elements, addToPreview, deleteItem }) => (
+const DraggableElement = ({ prefix, elements, addToPreview, deleteItem }) => {
+  const setSavedCombinations = useSetRecoilState(SavedCombinations);
+
+  const onBuy = () => {
+    console.log(elements);
+    elements.map(async(elt) => {
+      console.log(elt.link);
+      await window.open(elt.link, "_blank");
+    });
+  };
+
+  return (
   <Box p={4}>
     <Box fontWeight="bold" fontSize="lg" mb={4}>
       {prefix === "combinations" ? "All Combinations" : "Preview"}
@@ -36,9 +49,9 @@ const DraggableElement = ({ prefix, elements, addToPreview, deleteItem }) => (
       <>
         {elements?.length > 0 ? (
           <Flex direction="column">
-            <Button type="primary" width="484px" text="Buy now" />
+            <Button type="primary" width="484px" text="Buy now" onClick={onBuy} />
             <Box mt={3}>
-              <Button type="secondary" width="484px" text="Save this combo" />
+              <Button type="secondary" width="484px" text="Save this combo" onClick={() => setSavedCombinations(elements) } />
             </Box>
           </Flex>
         ) : (
@@ -49,6 +62,6 @@ const DraggableElement = ({ prefix, elements, addToPreview, deleteItem }) => (
       </>
     )}
   </Box>
-);
+)};
 
 export default DraggableElement;

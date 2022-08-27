@@ -1,76 +1,81 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { DragDropContext } from "react-beautiful-dnd";
-import { Flex } from "@chakra-ui/react";
-import { useRecoilState } from 'recoil';
+import { Grid, GridItem } from "@chakra-ui/react";
 
 import DraggableElement from "../components/DraggableElement";
-import { combinations, selectedCombinations } from "../constants";
-import { SavedCombinations } from '../states/savedCombinations';
+import { useCombinationsList } from "../queries/useCombinationsList";
 
 const lists = ["combinations", "preview"];
 
-const generateListNew = (selected) => {
+const generateListNew = (combinations, selected) => {
   return {
-    combinations: combinations.map(comb => {
-      return { ...comb, prefix: 'combinations' }
+    combinations: combinations?.map((comb) => {
+      return { ...comb, prefix: "combinations" };
     }),
-    preview: selected?.map(comb => {
-      return { ...comb, prefix: 'preview' }
+    preview: selected?.map((comb) => {
+      return { ...comb, prefix: "preview" };
     }),
-  }
-}
+  };
+};
 
 const Combinations = () => {
-  const [elements, setElements] = React.useState(generateListNew());
-  const [selected, setSelected] = React.useState([]);
+  const [elements, setElements] = useState(generateListNew());
+  const [selected, setSelected] = useState([]);
+  let [searchParams] = useSearchParams();
 
-  const [savedCombinations, setSavedCombinations] = useRecoilState(SavedCombinations);
+  const { data, isLoading, error, isFetching } = useCombinationsList({
+    type: searchParams.get("type"),
+    color: searchParams.get("color"),
+    gender: searchParams.get("gender"),
+  });
 
   useEffect(() => {
-    setSelected(selectedCombinations);
-  }, [selectedCombinations]);
-
-  useEffect(() => {
-    console.log(44444, generateListNew(selected));
-    setElements(generateListNew(selected));
-    setSavedCombinations(selected);
-  }, [selected]);
+    setSelected(data?.data?.[0]?.combination || []);
+    setElements(generateListNew(data?.data, data?.data?.[0]?.combination || []));
+  }, [data]);
 
   const onDragEnd = (result) => {
-    console.log(result);
-    if (!result.destination || result.destination.droppableId !== 'preview') {
+    if (!result.destination || result.destination.droppableId !== "preview") {
       return;
     }
     const listCopy = { ...elements };
-    if (result.source.droppableId === 'combinations') {
+    if (result.source.droppableId === "combinations") {
       let elt = null;
       listCopy[result.source.droppableId].map((x, i) => {
-        let index = x.combinations.findIndex(y => y.id === result.draggableId);
-        console.log(index);
+        let index = x.combination.findIndex(
+          (y) => y.id === result.draggableId
+        );
         if (index > -1) {
-          elt = listCopy[result.source.droppableId][i].combinations[index];
+          elt = listCopy[result.source.droppableId][i].combination[index];
         }
-      })
-      listCopy[result.destination.droppableId].splice(result.destination.index, 0, elt);
+      });
+      listCopy[result.destination.droppableId].splice(
+        result.destination.index,
+        0,
+        elt
+      );
     }
     setElements(listCopy);
   };
 
   const addToPreview = (data) => {
-    setSelected(data?.combinations || []);
+    console.log(data);
+    setSelected(data?.combination || []);
   };
 
   const deleteItem = (index) => {
     const items = [...selected];
-    const id = items.findIndex(item => item.id === index);
+    const id = items.findIndex((item) => item.id === index);
     items.splice(id, 1);
     setSelected(items);
   };
 
   return (
-      <DragDropContext onDragEnd={onDragEnd}>
-        <Flex>
-          {lists?.map((listKey) => (
+    <DragDropContext onDragEnd={onDragEnd}>
+      <Grid templateColumns="repeat(3, 1fr)">
+        {lists?.map((listKey) => (
+          <GridItem colSpan={listKey === "combinations" ? 2 : 1}>
             <DraggableElement
               elements={elements?.[listKey]}
               key={listKey}
@@ -78,10 +83,11 @@ const Combinations = () => {
               addToPreview={addToPreview}
               deleteItem={deleteItem}
             />
-          ))}
-        </Flex>
-      </DragDropContext>
+          </GridItem>
+        ))}
+      </Grid>
+    </DragDropContext>
   );
-}
+};
 
 export default Combinations;
