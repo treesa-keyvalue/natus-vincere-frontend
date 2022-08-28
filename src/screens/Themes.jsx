@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import Header from '../components/Header';
+import Button from "../components/Button";
+
 import { themes } from "../constants";
 
 const colors = ['#94003C', '#AC607F', '#E4D7DC', '#A89CA1', '#FD798C', '#FEBFCD', '#FE6695'];
@@ -101,7 +103,7 @@ const Themes = () => {
                 {sizeTop.map(item => (<SizeTopComponent size={item} onClick={() => setActiveClass({ ...activeClass, sizeTop: item})} isSelected={activeClass.sizeTop === item}/>))}
                 </ul>
               </Box>
-              <Box mr={9} className="sizebox-selector selectbox-detail">
+              <Box className="sizebox-selector selectbox-detail">
                 <Text>Bottom</Text>
                 <ul className="sizebox-list">
                 {sizeBottom.map(item => (<SizeBottomComponent size={item} onClick={() => setActiveClass({ ...activeClass, sizeBottom: item})} isSelected={activeClass.sizeBottom === item}/>))}
@@ -115,6 +117,9 @@ const Themes = () => {
               </ul>
             </Box>
           </Flex>
+        </div>
+        <div className="themepage-btn">
+          <Button type="primary" text={'Explore outfits'} />
         </div>
       </main>
     </div>

@@ -8,6 +8,10 @@ $textcolor: #2D2D2D;
 body {
     font-family: 'Poppins', sans-serif !important;
     position: relative;
+
+    @media only screen and (max-width: 575.9px) {
+        overflow-x: hidden;
+    }
 }
 
 @media only screen and (min-width: 1400px) {
@@ -62,7 +66,7 @@ header.landing-header {
             > a {
                 width: 100%;
                 text-align: center;
-                margin-bottom: 20px;
+                margin-bottom: 15px;
 
                 img {
                     display: inline-block;
@@ -523,5 +527,24 @@ main.navi-celebrity {
 }
 
 .theme-main-container {
-    padding: 60px 0 100px;
+    padding: 70px 0 100px;
+}
+
+.header-logo {
+    img {
+        height: 50px;
+
+        @media only screen and (max-width: 991.9px) {
+            height: 40px;
+        }
+    }
+}
+
+.themepage-btn {
+    margin-top: 50px;
+    width: 500px;
+    display: block;
+    margin-left: auto;
+    height: 56px;
+    font-size: 18px;
 }

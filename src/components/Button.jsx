@@ -5,7 +5,7 @@ const Button = ({ width, type, text, onClick }) => {
   let style= {};
   if (type === 'primary') {
     style = {
-      bg: '#FE2451',
+      bg: '#EF4F72',
       color: 'white',
       height: '44px',
       fontSize: 'sm'
