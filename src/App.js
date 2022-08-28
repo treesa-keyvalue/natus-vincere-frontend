@@ -9,6 +9,7 @@ import LandingPage from "./screens/LandingPage";
 import SavedProducts from "./screens/SavedProducts";
 import Header from "./components/Header";
 import Celebrities from './screens/Celebrities';
+import CasualWear from './screens/CasualWear';
 import Themes from './screens/Themes';
 
 const queryClient = new QueryClient();
@@ -20,13 +21,14 @@ function App() {
         <ChakraProvider>
           <RecoilRoot>
             {/* <Header /> */}
-            <Box className="container">
+            <Box>
               <Routes>
                 <Route path="/home" element={<LandingPage />} />
                 <Route path="/combinations" element={<Combinations />} />
                 <Route path="/saved" element={<SavedProducts />} />
                 <Route path="/themes" element={<Themes />} />
                 <Route path="/celebrities" element={<Celebrities />} />
+                <Route path="/casual-wear" element={<CasualWear />} />
               </Routes>
             </Box>
           </RecoilRoot>

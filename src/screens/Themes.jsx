@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
-
 import Header from '../components/Header';
 import { themes } from "../constants";
 
@@ -45,7 +44,7 @@ const Themes = () => {
   const [wearType, setWearType] = useState('1');
 
   return (
-    <>
+    <div className="container">
       <Header />
       <main className="theme-main-container">
         <Box fontWeight="600" my={5}>
@@ -90,7 +89,6 @@ const Themes = () => {
             </div>
           </Box>
         </Flex>
-
         <div>
           <Box fontWeight="600" mt={10} mb={3}>
             Size Chart
@@ -119,7 +117,7 @@ const Themes = () => {
           </Flex>
         </div>
       </main>
-    </>
+    </div>
   );
 };
 

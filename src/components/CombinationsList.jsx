@@ -6,7 +6,7 @@ import ImageCardContent from "./ImageCardContent";
 
 const CombinationsList = ({ combinations, selectCombination }) => {
   return (
-    <Flex direction="column" w="65%">
+    <Flex direction="column" w="58%">
       <Text fontWeight="500" fontSize="md" m={7}>
         All Combinations
       </Text>
@@ -16,7 +16,7 @@ const CombinationsList = ({ combinations, selectCombination }) => {
           cursor="pointer"
           templateColumns="repeat(3, 1fr)"
           onClick={() => selectCombination(comb)}
-          mb={4}
+          mb={8}
           borderRadius="lg"
           pt={2}
         >

@@ -24,7 +24,7 @@ const SavedProducts = () => {
   }
 
   return (
-    <>
+    <div className="container">
       <Header />
       {savedCombinations.length > 0 ? (
         <Box pt={16}>
@@ -69,7 +69,7 @@ const SavedProducts = () => {
           Please save a combination to view saved items
         </Box>
       )}
-    </>
+    </div>
   );
 };
 

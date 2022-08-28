@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="innerpage-header">
       <Flex className="container" p={5} justifyContent="space-between">
-        <Img src="./images/logo.png" />
+        <Img src="./images/logo.png" onClick={() => navigate("/home")} cursor="pointer" />
         <Button
           w="234px"
           bg="white"

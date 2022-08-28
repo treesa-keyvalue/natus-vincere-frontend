@@ -159,7 +159,7 @@ header.landing-header {
 }
 
 header.innerpage-header {
-    position: absolute;
+    position: fixed;
     left: 0;
     width: 100%;
     background: $white;
@@ -432,7 +432,7 @@ header.innerpage-header {
 }
 
 main.navi-celebrity {
-    padding-top: 130px;
+    padding-top: 102px;
     padding-bottom: 80px;
     z-index: 1;
     position: relative;
@@ -504,6 +504,7 @@ main.navi-celebrity {
         margin-top: 60px;
         border-radius: 5px;
         color: $white;
+        height: 44px;
     }
 }
 
@@ -522,5 +523,5 @@ main.navi-celebrity {
 }
 
 .theme-main-container {
-    padding: 50px 0 100px;
+    padding: 60px 0 100px;
 }

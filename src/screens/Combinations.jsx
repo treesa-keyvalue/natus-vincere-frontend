@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { DragDropContext } from "react-beautiful-dnd";
-import { Grid, GridItem, Flex } from "@chakra-ui/react";
+import { Grid, GridItem, Flex, Box } from "@chakra-ui/react";
 import { useSetRecoilState } from "recoil";
 import Header from '../components/Header';
 
@@ -98,9 +98,9 @@ const Combinations = () => {
     //     ))}
     //   </Grid>
     // </DragDropContext>
-    <>
+    <Box px={32}>
       <Header />
-      <Flex>
+      <Flex pt="64px">
         <CombinationsList
           combinations={elements}
           selectCombination={addToPreview}
@@ -111,7 +111,7 @@ const Combinations = () => {
           selectedItem={selectedItem}
         />
       </Flex>
-    </>
+    </Box>
   );
 };
 

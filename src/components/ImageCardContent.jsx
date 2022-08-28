@@ -13,7 +13,7 @@ const ImageCardContent = ({
   <Flex direction="column">
     <Box fontWeight="medium">{title}</Box>
     <Text fontSize="xs">{description}</Text>
-    <Flex fontSize="sm" color="red.500" justifyContent="space-between">
+    <Flex fontSize="sm" color="red.500" justifyContent="space-between" mt={3}>
       <Flex>
         {!hideRs && <Text mr={1}>Rs</Text>}
         <Text>{price}</Text>

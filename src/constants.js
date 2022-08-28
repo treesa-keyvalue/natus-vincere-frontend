@@ -63,7 +63,7 @@ export const themes = [
     image_link: './images/party.png'
   },
   {
-    name: 'Street Wear',
+    name: 'Casual Wear',
     id: '2',
     image_link: './images/street_wear.png'
   },
