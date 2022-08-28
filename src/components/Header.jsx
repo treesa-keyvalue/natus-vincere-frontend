@@ -2,12 +2,12 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Flex, Img, Button } from "@chakra-ui/react";
 
-const Header = () => {
+const Header = ({ fromHome }) => {
   const navigate = useNavigate();
 
   return (
     <header className="innerpage-header">
-      <Flex className="container" p={5} justifyContent="space-between">
+      <Flex className={fromHome? "homeHeader" : "container"} p={5} justifyContent="space-between" zIndex={2}>
         <Img src="./images/logo.png" onClick={() => navigate("/home")} cursor="pointer" />
         <Button
           w="234px"

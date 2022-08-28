@@ -44,7 +44,7 @@ const SizeShoesComponent = ({ size, isSelected, onClick }) => {
 
 const Themes = () => {
   const [activeClass, setActiveClass] = useState({ color: '#94003C', skin: '#8D5524', sizeTop: 'S', sizeBottom: '28', sizeShoes: '6'  })
-  const [wearType, setWearType] = useState('1');
+  const [wearType, setWearType] = useState('2');
 
   const navigate = useNavigate();
 

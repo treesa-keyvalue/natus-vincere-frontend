@@ -167,7 +167,12 @@ header.innerpage-header {
     left: 0;
     width: 100%;
     background: $white;
-    z-index: 1;
+    z-index: 2;
+}
+
+.homeHeader {
+    padding-left: 8% !important;
+    padding-right: 8% !important;
 }
 
 .navi-homepage {

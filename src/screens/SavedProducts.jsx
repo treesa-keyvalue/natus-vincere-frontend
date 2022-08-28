@@ -27,7 +27,7 @@ const SavedProducts = () => {
     <div className="container">
       <Header />
       {savedCombinations.length > 0 ? (
-        <Box pt={16}>
+        <Box pt={20}>
           <Flex
             alignItems="center"
             borderRadius="lg"

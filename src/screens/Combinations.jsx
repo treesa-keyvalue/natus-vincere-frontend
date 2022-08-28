@@ -99,7 +99,7 @@ const Combinations = () => {
     //   </Grid>
     // </DragDropContext>
     <Box px={32}>
-      <Header />
+      <Header fromHome />
       <Flex pt="64px">
         <CombinationsList
           combinations={elements}
