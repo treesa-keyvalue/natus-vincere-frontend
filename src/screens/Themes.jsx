@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+
 import Header from '../components/Header';
 import Button from "../components/Button";
-
 import { themes } from "../constants";
 
 const colors = ['#94003C', '#AC607F', '#E4D7DC', '#A89CA1', '#FD798C', '#FEBFCD', '#FE6695'];
@@ -44,6 +45,8 @@ const SizeShoesComponent = ({ size, isSelected, onClick }) => {
 const Themes = () => {
   const [activeClass, setActiveClass] = useState({ color: '#94003C', skin: '#8D5524', sizeTop: 'S', sizeBottom: '28', sizeShoes: '6'  })
   const [wearType, setWearType] = useState('1');
+
+  const navigate = useNavigate();
 
   return (
     <div className="container">
@@ -119,7 +122,7 @@ const Themes = () => {
           </Flex>
         </div>
         <div className="themepage-btn">
-          <Button type="primary" text={'Explore outfits'} />
+          <Button type="primary" text={'Explore outfits'} onClick={() => navigate('/casual-wear')} />
         </div>
       </main>
     </div>

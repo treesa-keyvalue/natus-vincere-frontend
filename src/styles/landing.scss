@@ -466,6 +466,15 @@ main.navi-celebrity {
             }
         }
 
+        .image-container1 {
+            padding: 0;
+
+            img {
+                object-fit: cover;
+                object-position: center
+            }
+        }
+
         .selection-container {
             padding-right: 0;
             padding-left: 60px;
