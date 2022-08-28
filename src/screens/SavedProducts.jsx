@@ -27,23 +27,23 @@ const SavedProducts = () => {
     <div className="container">
       <Header />
       {savedCombinations.length > 0 ? (
-        <Box pt={20}>
+        <Box pt={'130px'}>
           <Flex
             alignItems="center"
             borderRadius="lg"
             direction="column"
           >
             {savedCombinations.map((item, index) => (
-              <Flex alignItems="center" bg="gray.50" mb={2} borderRadius="lg" pr={3}>
+              <Flex alignItems="center" bg="gray.50" mb={2} borderRadius="lg" pr={3} w="100%">
                 {item.map((it) => (
                   <>
                     <Flex direction="column" p={4} mr={2} borderRadius="lg">
                       <ImageCard
                         src={it.image_link}
-                        width="140px"
-                        height="140px"
+                        width="200px"
+                        height="200px"
                       />
-                      <Box>
+                      <Box mt={'20px'}>
                         <ImageCardContent
                           title={it.name}
                           description={it.description}
@@ -54,7 +54,7 @@ const SavedProducts = () => {
                     </Flex>
                   </>
                 ))}
-                <Flex direction="column">
+                <Flex direction="column" ml={6}>
                   <Button type="primary" width="200px" text="Buy now" onClick={() => onBuy(item)} />
                   <Box mt={2}>
                     <Button type="secondary" width="200px" text="Remove" onClick={() => onRemove(index)}/>

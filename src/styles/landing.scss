@@ -168,6 +168,7 @@ header.innerpage-header {
     width: 100%;
     background: $white;
     z-index: 2;
+    box-shadow: 0 0 10px -7px #000000;
 }
 
 .homeHeader {
@@ -441,7 +442,7 @@ header.innerpage-header {
 }
 
 main.navi-celebrity {
-    padding-top: 102px;
+    padding-top: 130px;
     padding-bottom: 80px;
     z-index: 1;
     position: relative;
@@ -541,7 +542,7 @@ main.navi-celebrity {
 }
 
 .theme-main-container {
-    padding: 70px 0 100px;
+    padding: 130px 0 100px;
 }
 
 .header-logo {

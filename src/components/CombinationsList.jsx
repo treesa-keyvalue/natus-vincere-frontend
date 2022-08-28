@@ -6,8 +6,8 @@ import ImageCardContent from "./ImageCardContent";
 
 const CombinationsList = ({ combinations, selectCombination }) => {
   return (
-    <Flex direction="column" w="58%">
-      <Text fontWeight="500" fontSize="md" m={7}>
+    <Flex direction="column" w="58%" ml="5px">
+      <Text fontWeight="500" fontSize="md" my={7}>
         All Combinations
       </Text>
       {combinations?.map((comb) => (

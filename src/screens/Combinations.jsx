@@ -100,7 +100,7 @@ const Combinations = () => {
     // </DragDropContext>
     <Box px={32}>
       <Header fromHome />
-      <Flex pt="64px">
+      <Flex pt="88px">
         <CombinationsList
           combinations={elements}
           selectCombination={addToPreview}

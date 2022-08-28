@@ -7,7 +7,7 @@ const Header = ({ fromHome }) => {
 
   return (
     <header className="innerpage-header">
-      <Flex className={fromHome? "homeHeader" : "container"} p={5} justifyContent="space-between" zIndex={2}>
+      <Flex className={fromHome? "homeHeader" : "container"} py={5} justifyContent="space-between" zIndex={2}>
         <Img src="./images/logo.png" onClick={() => navigate("/home")} cursor="pointer" />
         <Button
           w="234px"
