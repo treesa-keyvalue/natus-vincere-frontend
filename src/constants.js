@@ -64,17 +64,17 @@ export const themes = [
   },
   {
     name: 'Street Wear',
-    id: '1',
+    id: '2',
     image_link: './images/street_wear.png'
   },
   {
     name: 'Wedding',
-    id: '1',
+    id: '3',
     image_link: './images/wedding.png'
   },
   {
     name: 'Active Wear',
-    id: '1',
+    id: '4',
     image_link: './images/active_wear.png'
   }
 ];
