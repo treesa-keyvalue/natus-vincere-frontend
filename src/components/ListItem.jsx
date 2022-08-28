@@ -6,7 +6,6 @@ import ImageCard from "./ImageCard";
 import ImageCardContent from "./ImageCardContent";
 
 const ListItem = ({ item, index, addToPreview, deleteItem }) => {
-  console.log(item);
   return (
     <>
       {item.prefix === "combinations" ? (

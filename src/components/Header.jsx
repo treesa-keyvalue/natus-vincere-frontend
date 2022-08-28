@@ -1,7 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { ArrowLeft, ShoppingCart } from "phosphor-react";
-import { Flex } from '@chakra-ui/react';
+import { Flex, Img, Button } from "@chakra-ui/react";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -9,8 +8,17 @@ const Header = () => {
   return (
     <header className="innerpage-header">
       <Flex className="container" p={5} justifyContent="space-between">
-        <ArrowLeft cursor="pointer" size={24} color="#3e3a6e" weight="bold" onClick={() => navigate(-1)} />
-        <ShoppingCart cursor="pointer" size={24} color="#3e3a6e" weight="bold" onClick={() => navigate('/saved')} />
+        <Img src="./images/logo.png" />
+        <Button
+          w="234px"
+          bg="white"
+          color="292C3E"
+          border="1px solid #DBE0E7"
+          fontWeight="light"
+          onClick={() => navigate("/saved")}
+        >
+          WISHLIST
+        </Button>
       </Flex>
     </header>
   );

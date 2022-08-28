@@ -11,9 +11,7 @@ const DraggableElement = ({ prefix, elements, addToPreview, deleteItem }) => {
   const setSavedCombinations = useSetRecoilState(SavedCombinations);
 
   const onBuy = () => {
-    console.log(elements);
     elements.map(async(elt) => {
-      console.log(elt.link);
       await window.open(elt.link, "_blank");
     });
   };

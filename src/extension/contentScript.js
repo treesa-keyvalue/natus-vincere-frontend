@@ -16,25 +16,26 @@ const init = function () {
             type,
             gender
         };
-        btnElt.addEventListener("click", () => navigate(product));
+        const productImg = document.getElementsByClassName('image-grid-image')[0].style.backgroundImage;
+        const productTitle = document.getElementsByClassName("pdp-title")[0].innerText;
+        const productDesc = document.getElementsByClassName("pdp-name")[0].innerText;
+        const productPrice = document.getElementsByClassName("pdp-price")[0].innerText;
+        const selectedItem = {
+            image: productImg.split('"')[1],
+            title: productTitle,
+            description: productDesc,
+            price: productPrice,
+        };
+        btnElt.addEventListener("click", () => navigate(product, selectedItem));
     });
     const sizeContainer = document.getElementsByClassName('size-buttons-size-container')?.[0];
     if (sizeContainer) {
         sizeContainer.append(btnElt);
     }
-    const productImg = document.getElementsByClassName('image-grid-image')[0].style.backgroundImage;
-    const productTitle = document.getElementsByClassName("pdp-title")[0].innerText;
-    const productDesc = document.getElementsByClassName("pdp-name")[0].innerText;
-    const product = {
-        image: productImg.split('"')[1],
-        title: productTitle,
-        description: productDesc
-    };
-    localStorage.setItem("product", JSON.stringify(product));
 }
 
-const navigate = function (product) {
-    window.open(`http://localhost:3000/combinations?color=${product.color}&type=${product.type}&gender=${product.gender}`, '_blank')
+const navigate = function (product, selectedItem) {
+    window.open(`http://localhost:3000/combinations?color=${product.color}&type=${product.type}&gender=${product.gender}&data=${JSON.stringify(selectedItem)}`, '_blank')
 }
 
 init();

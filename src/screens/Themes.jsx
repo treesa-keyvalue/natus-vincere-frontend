@@ -1,11 +1,13 @@
 import React from "react";
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import Header from '../components/Header';
 
 import { themes } from "../constants";
 
 const Themes = () => {
   return (
     <>
+      <Header />
       <Box fontWeight="600" my={5}>
         CHOOSE YOUR STYLE
       </Box>

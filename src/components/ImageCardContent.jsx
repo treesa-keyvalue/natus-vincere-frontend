@@ -8,17 +8,24 @@ const ImageCardContent = ({
   price,
   discount,
   deleteItem,
+  hideRs,
 }) => (
   <Flex direction="column">
     <Box fontWeight="medium">{title}</Box>
     <Text fontSize="xs">{description}</Text>
     <Flex fontSize="sm" color="red.500" justifyContent="space-between">
       <Flex>
-        <Text>Rs {price}</Text>
-        <Text ml={4}>{discount}% OFF</Text>
+        {!hideRs && <Text mr={1}>Rs</Text>}
+        <Text>{price}</Text>
       </Flex>
       {deleteItem && (
-        <Trash size={16} color="#3e3a6e" weight="bold" onClick={deleteItem} />
+        <Trash
+          cursor="pointer"
+          size={16}
+          color="#3e3a6e"
+          weight="bold"
+          onClick={deleteItem}
+        />
       )}
     </Flex>
   </Flex>

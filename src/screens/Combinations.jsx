@@ -1,10 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { DragDropContext } from "react-beautiful-dnd";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Flex } from "@chakra-ui/react";
+import { useSetRecoilState } from "recoil";
+import Header from '../components/Header';
 
 import DraggableElement from "../components/DraggableElement";
 import { useCombinationsList } from "../queries/useCombinationsList";
+import CombinationsList from "../components/CombinationsList";
+import Preview from "../components/Preview";
 
 const lists = ["combinations", "preview"];
 
@@ -19,20 +23,30 @@ const generateListNew = (combinations, selected) => {
   };
 };
 
+const parseType = (type) => {
+  if (type === "shirt" || type === "t-shirt") {
+    return "top";
+  }
+  return type;
+};
+
 const Combinations = () => {
-  const [elements, setElements] = useState(generateListNew());
+  const [elements, setElements] = useState([]);
   const [selected, setSelected] = useState([]);
   let [searchParams] = useSearchParams();
+  const [selectedItem, setSelectedItem] = useState(
+    JSON.parse(searchParams.get("data"))
+  );
 
   const { data, isLoading, error, isFetching } = useCombinationsList({
-    type: searchParams.get("type"),
+    type: parseType(searchParams.get("type")),
     color: searchParams.get("color"),
     gender: searchParams.get("gender"),
   });
 
   useEffect(() => {
     setSelected(data?.data?.[0]?.combination || []);
-    setElements(generateListNew(data?.data, data?.data?.[0]?.combination || []));
+    setElements(data?.data);
   }, [data]);
 
   const onDragEnd = (result) => {
@@ -43,9 +57,7 @@ const Combinations = () => {
     if (result.source.droppableId === "combinations") {
       let elt = null;
       listCopy[result.source.droppableId].map((x, i) => {
-        let index = x.combination.findIndex(
-          (y) => y.id === result.draggableId
-        );
+        let index = x.combination.findIndex((y) => y.id === result.draggableId);
         if (index > -1) {
           elt = listCopy[result.source.droppableId][i].combination[index];
         }
@@ -60,7 +72,6 @@ const Combinations = () => {
   };
 
   const addToPreview = (data) => {
-    console.log(data);
     setSelected(data?.combination || []);
   };
 
@@ -72,21 +83,35 @@ const Combinations = () => {
   };
 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
-      <Grid templateColumns="repeat(3, 1fr)">
-        {lists?.map((listKey) => (
-          <GridItem colSpan={listKey === "combinations" ? 2 : 1}>
-            <DraggableElement
-              elements={elements?.[listKey]}
-              key={listKey}
-              prefix={listKey}
-              addToPreview={addToPreview}
-              deleteItem={deleteItem}
-            />
-          </GridItem>
-        ))}
-      </Grid>
-    </DragDropContext>
+    // <DragDropContext onDragEnd={onDragEnd}>
+    //   <Grid templateColumns="repeat(3, 1fr)">
+    //     {lists?.map((listKey) => (
+    //       <GridItem colSpan={listKey === "combinations" ? 2 : 1}>
+    //         <DraggableElement
+    //           elements={elements?.[listKey]}
+    //           key={listKey}
+    //           prefix={listKey}
+    //           addToPreview={addToPreview}
+    //           deleteItem={deleteItem}
+    //         />
+    //       </GridItem>
+    //     ))}
+    //   </Grid>
+    // </DragDropContext>
+    <>
+      <Header />
+      <Flex>
+        <CombinationsList
+          combinations={elements}
+          selectCombination={addToPreview}
+        />
+        <Preview
+          combinations={selected}
+          deleteItem={deleteItem}
+          selectedItem={selectedItem}
+        />
+      </Flex>
+    </>
   );
 };
 
