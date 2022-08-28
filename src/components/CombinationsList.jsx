@@ -23,7 +23,7 @@ const CombinationsList = ({ combinations, selectCombination }) => {
           {comb.combination?.map((combination) => (
             <GridItem key={combination.id} p={2} mb={2}>
               <Flex direction="column" bg="white" p={2} borderRadius="lg">
-                <Flex justifyContent="center">
+                <Flex justifyContent="center" onClick={() => window.open(combination.link)}>
                   <ImageCard
                     src={combination.image_link}
                     width="200px"
