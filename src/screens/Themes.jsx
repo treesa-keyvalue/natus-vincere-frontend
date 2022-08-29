@@ -43,16 +43,26 @@ const SizeShoesComponent = ({ size, isSelected, onClick }) => {
 };
 
 const Themes = () => {
-  const [activeClass, setActiveClass] = useState({ color: '#94003C', skin: '#8D5524', sizeTop: 'S', sizeBottom: '28', sizeShoes: '6'  })
+  const [activeClass, setActiveClass] = useState({ color: '#94003C', skin: '#E0AC69', sizeTop: 'M', sizeBottom: '34', sizeShoes: '8'  })
   const [wearType, setWearType] = useState('2');
 
   const navigate = useNavigate();
+
+  const onImageUpload = () => {
+    let input = document.createElement('input');
+    input.type = 'file';
+    input.onchange = _this => {
+        let files =   Array.from(input.files);
+        console.log(files);
+    };
+    input.click();
+  };
 
   return (
     <div className="container">
       <Header />
       <main className="theme-main-container">
-        <Box fontWeight="600" my={5}>
+        <Box fontWeight="600" fontSize="lg" my={5}>
           CHOOSE YOUR STYLE
         </Box>
         <Flex bg="gray.50" direction="column" p={2} className="activewear-container">
@@ -69,7 +79,7 @@ const Themes = () => {
                 </Box>
               </Flex>
             ))}
-            <Flex direction="column" p={2} cursor="pointer" _hover={{ opacity: 0.8 }}>
+            <Flex direction="column" p={2} cursor="pointer" _hover={{ opacity: 0.8 }} onClick={() => onImageUpload()}>
               <Image src="./images/upload.png" />
             </Flex>
           </Flex>

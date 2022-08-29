@@ -441,7 +441,7 @@ header.innerpage-header {
     min-height: 100vh;
 }
 
-main.navi-celebrity {
+.navi-celebrity {
     padding-top: 130px;
     padding-bottom: 80px;
     z-index: 1;
@@ -529,8 +529,8 @@ main.navi-celebrity {
 
 .activewear-container {
     img {
-        width: 180px;
-        height: 180px;
+        width: 200px;
+        height: 200px;
         object-fit: cover;
         object-position: center;
         border-radius: 5px;

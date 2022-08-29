@@ -15,7 +15,7 @@ const CasualWear = () => {
       <Header />
       <div className="celebritypage-bg"></div>
       <main className="navi-celebrity">
-        <Box fontSize="lg" fontWeight="medium">CASUAL WEAR</Box>
+        <Box fontSize="lg" fontWeight="600">CASUAL WEAR</Box>
         <section className="navi-celebrity__box">
           <Container>
             <Row>

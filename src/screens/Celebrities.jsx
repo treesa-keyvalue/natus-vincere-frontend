@@ -14,8 +14,8 @@ const Celebrities = () => {
     <>
       <Header />
       <div className="celebritypage-bg"></div>
-      <main className="navi-celebrity">
-        <Box fontSize="lg" fontWeight="medium">CELEBRITIES</Box>
+      <main className="navi-celebrity container">
+        <Box fontSize="lg" fontWeight="600">CELEBRITIES</Box>
         <section className="navi-celebrity__box">
           <Container>
             <Row>

@@ -1,6 +1,6 @@
-import React from "react";
-import { useRecoilState } from "recoil";
-import { Flex, Box } from "@chakra-ui/react";
+import React, { useEffect } from "react";
+import { useRecoilState, useRecoilValue } from "recoil";
+import { Flex, Box, Text } from "@chakra-ui/react";
 import Header from "../components/Header";
 
 import { SavedCombinations } from "../states/savedCombinations";
@@ -27,7 +27,10 @@ const SavedProducts = () => {
     <div className="container">
       <Header />
       {savedCombinations.length > 0 ? (
-        <Box pt={'130px'}>
+        <Box pt={'90px'}>
+          <Text fontWeight="600" fontSize="lg" my={7}>
+            SAVED OUTFITS
+          </Text>
           <Flex
             alignItems="center"
             borderRadius="lg"

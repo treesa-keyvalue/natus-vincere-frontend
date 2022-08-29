@@ -20,8 +20,8 @@ const Preview = ({ combinations, deleteItem, selectedItem }) => {
   return (
     <Flex position="fixed" direction="column" w="32%" ml={4}>
       <Box position="fixed" right="8%">
-        <Text fontWeight="500" fontSize="md" m={7}>
-          Preview
+        <Text fontWeight="600" fontSize="lg" m={7}>
+          PREVIEW
         </Text>
         <Box h="65vh" overflow="auto" mb={4}>
           <Box bg="gray.50" mb={4} borderRadius="lg">

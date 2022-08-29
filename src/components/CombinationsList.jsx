@@ -7,8 +7,8 @@ import ImageCardContent from "./ImageCardContent";
 const CombinationsList = ({ combinations, selectCombination }) => {
   return (
     <Flex direction="column" w="58%" ml="5px">
-      <Text fontWeight="500" fontSize="md" my={7}>
-        All Combinations
+      <Text fontWeight="600" fontSize="lg" my={7}>
+        ALL COMBINATIONS
       </Text>
       {combinations?.map((comb) => (
         <Grid

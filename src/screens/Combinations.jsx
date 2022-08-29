@@ -2,14 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { DragDropContext } from "react-beautiful-dnd";
 import { Grid, GridItem, Flex, Box } from "@chakra-ui/react";
-import { useSetRecoilState } from "recoil";
 import Header from '../components/Header';
 
 import DraggableElement from "../components/DraggableElement";
 import { useCombinationsList } from "../queries/useCombinationsList";
 import CombinationsList from "../components/CombinationsList";
 import Preview from "../components/Preview";
-
 const lists = ["combinations", "preview"];
 
 const generateListNew = (combinations, selected) => {
@@ -34,9 +32,7 @@ const Combinations = () => {
   const [elements, setElements] = useState([]);
   const [selected, setSelected] = useState([]);
   let [searchParams] = useSearchParams();
-  const [selectedItem, setSelectedItem] = useState(
-    JSON.parse(searchParams.get("data"))
-  );
+  const selectedItem = JSON.parse(searchParams.get("data"));
 
   const { data, isLoading, error, isFetching } = useCombinationsList({
     type: parseType(searchParams.get("type")),
